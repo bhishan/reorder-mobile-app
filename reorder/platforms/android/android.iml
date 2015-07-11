@@ -4,9 +4,6 @@
     <facet type="android" name="Android">
       <configuration />
     </facet>
-    <facet type="android" name="Android2">
-      <configuration />
-    </facet>
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
@@ -19,5 +16,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="CordovaLib" />
     <orderEntry type="module" module-name="CordovaLib" />
+    <orderEntry type="library" name="com.google.zxing.client.android.captureactivity" level="project" />
   </component>
 </module>

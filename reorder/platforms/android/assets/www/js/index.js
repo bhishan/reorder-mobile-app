@@ -33,6 +33,9 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
+        $("#btnAddItem").on('click',function(e){
+            startScan();
+        });
         app.receivedEvent('deviceready');
     },
     // Update DOM on a Received Event
@@ -49,3 +52,19 @@ var app = {
 };
 
 app.initialize();
+
+
+function startScan() {
+    cordova.plugins.barcodeScanner.scan(
+        function (result) {
+            var s = "Result: " + result.text +
+                "Format: " + result.format +
+                "Cancelled: " + result.cancelled;
+            alert(JSON.stringify(s));
+            //resultDiv.innerHTML = s;
+        },
+        function (error) {
+            alert("Scanning failed: " + error);
+        }
+    );
+}
