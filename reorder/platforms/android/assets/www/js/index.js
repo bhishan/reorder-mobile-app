@@ -45,6 +45,11 @@ var app = {
             window.location.hash = '#itemList';
         });
 
+        $("#btnViewTransaction").on('click',function(e){
+            $('#ulTransactionList').html('');
+            window.location.hash = "transactionList";
+        });
+
         app.receivedEvent('deviceready');
     },
     // Update DOM on a Received Event
