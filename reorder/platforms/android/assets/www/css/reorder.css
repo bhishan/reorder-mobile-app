@@ -2,6 +2,8 @@
 .reorder-logo img{margin-left:8px;}
 .page-content{ background:#F78181 url(../img/page-bg.png) no-repeat right top; padding:60px 15px 70px 15px; color:#B40404; overflow-y:auto;}
 
+h2{font-size:16px; font-weight:bold; text-transform:uppercase; color:#ccffff; padding:0 0 3px 0; border-bottom:2px solid #888888; margin:0 0 10px 0;}
+
 ul.dashboard{display:block; padding:0; margin:0;}
 ul.dashboard li{text-align:center; list-style:none; text-align:center; border:1px solid #F78181; background:rgba(255, 255, 255, 0.7);}
 ul.dashboard li:hover{background-color:rgba(79, 239, 252, 0.1)}
@@ -24,3 +26,8 @@ ul.dashboard li.icon-choose-vendor a{display:block; height:185px; width:140px; m
 ul.dashboard li.icon-view-transaction a{display:block; height:185px; width:140px; margin:0 auto; background-position:30px -310px;}
 
 ul.dashboard li.icon-about-us a{display:block; height:185px; width:140px; margin:0 auto; background-position:30px -480px;}
+
+.reorder-popup{padding: 20px;}
+.itemPopTbl { margin:0; padding:0;}
+.clear{clear:both; display:block;}
+

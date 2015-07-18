@@ -16,6 +16,8 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
+var db;
 var app = {
     // Application Constructor
     initialize: function() {
@@ -33,9 +35,16 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
+        //db = window.openDatabase("Database", "1.0", "Reorder", 5242880);
         $("#btnAddItem").on('click',function(e){
             startScan();
         });
+
+        $("#btnViewItem").on("click", function(e){
+            $('#ulItemList').html('');
+            window.location.hash = '#itemList';
+        });
+
         app.receivedEvent('deviceready');
     },
     // Update DOM on a Received Event

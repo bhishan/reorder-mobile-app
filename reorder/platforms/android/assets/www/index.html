@@ -65,8 +65,54 @@
             </div>-->
         </div>
     </div>
-    <!-- Login -->
+    <!-- HomeScreen -->
 
+    <!-- Item Lists -->
+    <div data-role="page" data-theme="a" id="itemList" class="page-bg">
+        <div class="page-header">
+            <div class="reorder-logo">
+                <a href="#homeScreen" data-transition="slide"><img src="img/reorder.png" alt="REORDER" /></a>
+            </div>
+        </div>
+
+        <div class="page-content" data-role="content">
+            <div class="clear"></div>
+            <div class="clear"></div>
+            <h2>Item List<div class="clear"></div></h2>
+            <div class="the-form ">
+                <form name="" id="">
+
+                    <ul data-role="listview" id="ulItemList" data-filter="true" data-filter-reveal="false" data-filter-placeholder="Search Items">
+
+                    </ul>
+
+
+                </form>
+            </div>
+
+        </div>
+
+
+        <div data-role="popup" id="itemListPopup" data-overlay-theme="a" data-theme="a" class="ui-corner-all" data-phone="">
+            <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+            <div data-role="content" role="banner" data-theme="d" class="ui-corner-bottom ui-content reorder-popup">
+
+                <table cellpadding="0" cellspacing="0"  class="itemPopTbl">
+                    <tr>
+                        <td><a href="#" id="btnViewSelectedItem"><img src="images/icon-call.png" width="50px" height="50px"></a></td>
+                        <td><a href="#" id="btnEditSelectedItem"><img src="images/icon-sms.png" width="50px" height="50px"></a></td>
+                        <td><a href="#" id="btnRemoveSelectedItem"><img src="images/icon-edit.png" width="50px" height="50px"></a></td>
+                    </tr>
+                    <tr>
+                        <td align="center">View</td>
+                        <td align="center">Edit</td>
+                        <td align="center">Remove</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- Item Lists -->
     </div>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="cordova_plugins.js"></script>
