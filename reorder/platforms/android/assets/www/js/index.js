@@ -35,13 +35,30 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-        //db = window.openDatabase("Database", "1.0", "Reorder", 5242880);
+        db = window.openDatabase("Database", "1.0", "Reorder", 5242880);
+
         $("#btnAddItem").on('click',function(e){
             startScan();
+            var data = {Item:"Colgate", ItemProductGroup:"Toothpaste", ItemProductManufacturer: "Colgate Inc", ItemId: 11223498573};
+            data = JSON.stringify(data);
+            db.transaction(function (tx) {
+                tx.executeSql('CREATE TABLE IF NOT EXISTS person(id unique, data )');
+                tx.executeSql('INSERT OR REPLACE INTO person(id, data) VALUES (1, ?)', [data]);
+                tx.executeSql('INSERT OR REPLACE INTO person(id, data) VALUES (2, ?)', [data]);
+                tx.executeSql('INSERT OR REPLACE INTO person(id, data) VALUES (3, ?)', [data]);
+                tx.executeSql('INSERT OR REPLACE INTO person(id, data) VALUES (4, ?)', [data]);
+
+            });
+
+
+
         });
 
         $("#btnViewItem").on("click", function(e){
             $('#ulItemList').html('');
+            db.transaction(function(tx){
+                tx.executeSql('SELECT * FROM person',[], function(tx,results){queryGetPersonInfoSuccess(tx,results)}, errorCB);
+            });
             window.location.hash = '#itemList';
         });
 
@@ -68,6 +85,39 @@ var app = {
 app.initialize();
 
 
+
+// Transaction error callback
+//
+
+function queryGetPersonInfoSuccess(tx,results){
+    var len = results.rows.length;
+    var result = '';
+    alert(len);
+    var obj;
+    for(var i = 0; i<len; i++){
+        obj = JSON.parse(results.rows.item(i).data);
+        alert(obj.ItemProductGroup);
+        result += '<li class="ui-first-child"><a href="#viewIndividualItem" class="ui-btn ui-btn-icon-right ui-icon-carat-r" data-transition="slide"' + 'data-itemName="' + obj.Item +
+        '" data-itemProductGroup="' +obj.ItemProductGroup +
+        '" data-itemProductManufacturer="' +obj.ItemProductManufacturer +
+        '" data-itemId="' + obj.ItemId  +'"' + '" style="font-style:oblique;color:lightslategray" class="ui-btn ui-btn-icon-right ui-icon-carat-r itemclickhere"' + '>' + obj.Item +'</a></li>'
+    }
+    $('#ulItemList').html(result);
+
+    $('#ulItemList').find("a").click(function(e){
+        console.log(JSON.stringify($(this).attr('data-itemName')));
+        $('#itemTitleFromResponse').html($(this).attr('data-itemName'));
+        $('#itemProductGroupFromResponse').html($(this).attr('data-itemProductGroup'));
+        $('#itemManufacturerFromResponse').html($(this).attr('data-itemProductManufacturer'));
+        $('#itemIdFromResponse').html($(this).attr('data-itemId'));
+    });
+
+}
+
+function errorCB(err) {
+    console.log("DW: Error processing SQL: "+ JSON.stringify(err));
+}
+
 function startScan() {
     cordova.plugins.barcodeScanner.scan(
         function (result) {
@@ -81,4 +131,9 @@ function startScan() {
             alert("Scanning failed: " + error);
         }
     );
+}
+
+
+function successCB() {
+    alert("success!");
 }
