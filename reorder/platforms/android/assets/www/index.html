@@ -52,10 +52,11 @@
         </div>
         <div class="page-content" data-role="content">
             <ul class="dashboard">
-                <li class="icon-add-item"><a class="ui-btn ui-icon-plus ui-btn-icon-top" id="btnAddItem" href="#" data-transition="pop" >Add Item</a></li>
+
                 <li class="icon-view-item"><a class="ui-btn ui-icon-eye ui-btn-icon-top" href="#"  id="btnViewItem" data-transition="pop">View Item</a></li>
-                <li class="icon-choose-vendor"><a class="ui-btn ui-icon-shop ui-btn-icon-top" href="#"  id="btnChooseVendor" data-transition="pop">Choose Vendor</a></li>
                 <li class="icon-view-transaction"><a class="ui-btn ui-icon-star ui-btn-icon-top" href="#"  id="btnViewTransaction" data-transition="pop">View Transaction</a></li>
+                <li class="icon-add-item"><a class="ui-btn ui-icon-plus ui-btn-icon-top" id="btnAddItem" href="#" data-transition="pop" >Add Item</a></li>
+                <li class="icon-choose-vendor"><a class="ui-btn ui-icon-shop ui-btn-icon-top" href="#"  id="btnChooseVendor" data-transition="pop">Choose Vendor</a></li>
                 <li class="icon-about-us"><a class="ui-btn ui-icon-user ui-btn-icon-top" href="#"  id="btnAboutUs" data-transition="pop">About Us</a></li>
                 <div class="clear"></div>
             </ul>
@@ -140,6 +141,38 @@
         </div>
     </div>
     <!-- Transaction List End-->
+
+    <!-- View Individual Item -->
+    <div data-role="page" data-theme="a" id="viewIndividualItem" class="page-bg" data-phonenum="" data-oldphonenum="" data-issync="" data-syncstatus="">
+        <div class="page-header">
+            <div class="reorder-logo">
+                <a href="#homeScreen" data-transition="slide"><img src="img/reorder.png" alt="REORDER" /></a>
+            </div>
+        </div>
+        <div class="page-content" data-role="content">
+            <h2>View Individual Item</h2>
+            <ul class="victimInfoList" id="victimInfo">
+                <li>
+                    <p>Item : </p>
+                    <span id = "itemTitleFromResponse"><!--Ram Bahadur Magar--></span>
+                </li>
+                <li>
+                    <p>Product Group : </p>
+                    <span id = "itemProductGroupFromResponse"><!--4--></span>
+                </li>
+                <li>
+                    <p>Manufacturer : </p>
+                    <span id = "itemManufacturerFromResponse"><!--9842262868--></span>
+                </li>
+                <li>
+                    <p>Item Id : </p>
+                    <span id = "itemIdFromResponse"><!--facebook.com/rbmagar--></span>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <!-- View Individual Item -->
 
     </div>
     <script type="text/javascript" src="cordova.js"></script>
